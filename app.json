@@ -1,6 +1,8 @@
 {
+  "slug": "hardwareguard-bom-studio",
+  "version": "1.0.0",
   "name": "HardwareGuard BOM Studio",
   "tagline": "Deterministic PCBA BOM auditing, cross-board voltage conflict checks, and AI-assisted IPD release gating.",
-  "description": "Catch costly PCBA manufacturing defects before SMT tape-out. HardwareGuard BOM Studio runs deterministic L0–L4 rules (value swaps, footprint mismatches like SMB vs SMA, capacitor derating margins < 1.25x, missing MPNs, EOL parts, and cross-board connector voltage conflicts) with conservative PASS/CONDITIONAL/REJECT IPD gating, persistent audit history, and zero-key AI Engineering Remediation & ECO Brief generation inside Anna AI OS.",
+  "description": "Catch costly PCBA manufacturing defects before SMT tape-out. HardwareGuard BOM Studio runs deterministic L0–L4 rules (value swaps, footprint mismatches like SMB vs SMA, capacitor derating margins < 1.25x, missing MPNs, EOL parts, and cross-board connector voltage conflicts) with conservative PASS/CONDITIONAL/REJECT IPD gating, cross-device Anna APS storage, and zero-key AI Engineering Remediation & ECO Brief generation inside Anna AI OS.",
   "category": "developer"
 }
