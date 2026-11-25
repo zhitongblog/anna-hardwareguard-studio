@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HardwareGuard BOM Studio</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" type="module"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <strong>HardwareGuard BOM Studio</strong>
+        <span id="host-badge" class="badge">Connecting…</span>
+      </div>
+      <div class="toolbar">
+        <select id="sample-select" class="select">
+          <option value="powerbank">Sample: PowerBank Mainboard (Defects)</option>
+          <option value="clean">Sample: Production-Ready Board (PASS)</option>
+          <option value="crossboard">Sample: Dual-PCB 5V/12V Conflict</option>
+        </select>
+        <button id="btn-audit" class="btn primary">Run Deterministic Audit</button>
+        <button id="btn-ai-plan" class="btn">✨ AI ECO Plan</button>
+        <button id="btn-ai-memo" class="btn">📋 AI Sign-Off Memo</button>
+        <button id="btn-export" class="btn">Export Minutes</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel inputs">
+        <div class="panel-head">
+          <span>1. Board &amp; BOM CSV Input</span>
+          <input id="board-name" class="inline-input" value="PB-2026-RevC Mainboard" placeholder="Board name…" />
+        </div>
+        <textarea id="bom-input" class="code-box" spellcheck="false" placeholder="designator,value,footprint,mpn,status,voltagerating,busvoltage"></textarea>
+
+        <div class="panel-head" style="margin-top: 10px;">
+          <span>2. Schematic Reference JSON (Optional)</span>
+        </div>
+        <textarea id="sch-input" class="code-box small" spellcheck="false" placeholder='[{"designator":"D1","value":"SMBJ15A","footprint":"SMB"}]'></textarea>
+
+        <div class="panel-head" style="margin-top: 10px;">
+          <span>3. Cross-Board Mated Connectors JSON (L4)</span>
+        </div>
+        <textarea id="conn-input" class="code-box small" spellcheck="false" placeholder='[{"connector":"J1","pin":1,"boardA_net":"VBUS_5V","boardA_voltage":5,"boardB_net":"VIN_12V","boardB_voltage":12}]'></textarea>
+      </section>
+
+      <section class="panel results">
+        <div class="gate-card" id="gate-card">
+          <div>
+            <div class="gate-label">IPD RELEASE GATE VERDICT</div>
+            <div class="gate-verdict" id="gate-verdict">—</div>
+          </div>
+          <div class="gate-metrics" id="gate-metrics"></div>
+        </div>
+        <div id="risk-banner" class="risk-banner hidden"></div>
+
+        <div class="panel-head" style="margin-top: 10px;">
+          <span>Deterministic Findings (Click to Toggle Risk-Accepted Ledger)</span>
+          <span id="owner-summary" class="muted"></span>
+        </div>
+        <div id="findings-list" class="findings-list"></div>
+
+        <div class="panel-head" style="margin-top: 10px;">
+          <span>AI Engineering Remediation / Review Minutes</span>
+        </div>
+        <pre id="output-box" class="output-box">Run an audit, toggle any risk-accepted waivers, or click ✨ AI ECO Plan to generate a structured engineering action plan.</pre>
+      </section>
+    </main>
+  </body>
+</html>

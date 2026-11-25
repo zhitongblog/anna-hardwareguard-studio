@@ -1,0 +1,35 @@
+{
+  "schema": 4,
+  "required_executas": [],
+  "tags": [
+    "hardware",
+    "pcba",
+    "bom",
+    "manufacturing",
+    "engineering",
+    "ipd"
+  ],
+  "system_prompt_addendum": "You have HardwareGuard BOM Studio installed. When the user wants to audit a PCBA Bill of Materials (BOM CSV), check schematic-vs-BOM footprint/value mismatches, verify capacitor voltage derating, trace cross-board connector voltage conflicts, or generate an IPD pilot/mass-production release gate verdict and ECO remediation brief, open HardwareGuard BOM Studio.",
+  "ui": {
+    "bundle": {
+      "format": "static-spa",
+      "entry": "index.html",
+      "external_origins": []
+    },
+    "views": [
+      {
+        "name": "main",
+        "title": "HardwareGuard BOM Studio",
+        "default": true,
+        "default_size": { "w": 1160, "h": 740 },
+        "min_size": { "w": 720, "h": 500 },
+        "resizable": true,
+        "movable": true,
+        "single_instance": true,
+        "summary_template": "HardwareGuard BOM Studio with deterministic PCBA BOM & L4 connector rules, conservative IPD release gate, and AI engineering remediation."
+      }
+    ],
+    "csp_overrides": {},
+    "state_merge": "last_writer_wins"
+  }
+}
